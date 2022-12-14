@@ -132,13 +132,84 @@ fn main() {
 
 
     // ! difference between str and String
-    let mut str1 = String::new();
-    str1.push('A');
-    str1.push_str(" I am Akshay");
-    for word in str1.split(' ') {
-        println!("{}",word);
+    // let mut str1 = String::new();
+    // str1.push('A');
+    // str1.push_str(" I am Akshay");
+    // for word in str1.split(' ') {
+    //     println!("{}",word);
+    // }
+    // let str2 = str1.replace("A", "another");
+    // println!("{}",str2);
+
+    // string manipulations 
+    // let str3 = String::from("a b c d e f g h i j k l m n o p q r s t u v w x y z");
+    // let mut v1: Vec<char> = str3.chars().collect();
+    // v1.dedup();
+    // v1.sort();
+    // for char in v1 {
+    //     println!("{}",char);
+    // }
+
+    // let str4 = "this is a string";
+    // let mut str5 = str4.to_string();
+    // println!("{}",str5);
+
+    // let byte_array = str5.as_bytes();
+    // how the slicing is done in rust programming langauge 
+    // let str6 = &str5[0..5];
+    // println!("{}",str6);
+    // println!("the length of the string is {}",str6.len());
+    // clearing the string 
+    // str5.clear();
+
+    // * combining two strings together
+    // let str7 = String::from("just some ");
+    // let str8 = String::from("words");
+    // let str9 = str7 + &str8;
+    // // now the str7 should not be called by reference as its need to change but the str8 refrence is needed to add 
+    // // in the str9 
+    // // println!("{}",str9);
+    // for char in str8.bytes(){
+    //     println!("{}",char);
+    // }
+
+    // * casting in rust programming language 
+
+    // let int_u8:u8 = 45;
+    // let int2_u8:u8 = 3;
+    // let int_u32:u32 = (int_u8 as u32) + (int2_u8 as u32);
+
+    
+    // ? hwo to use enums
+
+    enum Days {
+        monday,
+        tuesday,
+        wednesday,
+        thrusday,
+        friday,
+        saturday,
+        sunday,
     }
 
+    impl Days {
+        fn is_weekday(&self) -> bool {
+            match self {
+                Days::saturday | Days::sunday => true,
+                _ => false
+            }
+        }
+    }
+
+    let today:Days = Days::saturday;
+    match today {
+        Days::monday => println!("boring"),
+        _ => println!("meh")
+    }
+    match today.is_weekday() {
+        true => println!("yay weekend"),
+        _ => println!("ahh fuck no"),
+    }
 
 
 
