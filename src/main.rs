@@ -116,9 +116,30 @@ fn main() {
     //     println!("{}",val);
     // }
 
-    for index in 0..arr_1.len(){
-        println!("index : {} and value is {}",index,arr_1[index]);
+    // for index in 0..arr_1.len(){
+    //     println!("index : {} and value is {}",index,arr_1[index]);
+    // }
+
+
+    // ? how to use tuples in rust 
+
+    // let my_tuple: (u32,String,f32) = (34,"akshay".to_string(),3434.45);
+
+    // println!("name is {}",my_tuple.1);
+    // #[allow(unused_variables)]
+    // let (age,name,package) = my_tuple;
+    // println!("my name is {} and i am {}",name,age);
+
+
+    // ! difference between str and String
+    let mut str1 = String::new();
+    str1.push('A');
+    str1.push_str(" I am Akshay");
+    for word in str1.split(' ') {
+        println!("{}",word);
     }
+
+
 
 
     
