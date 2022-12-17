@@ -4,6 +4,8 @@ use std::io;
 use rand::Rng;
 #[allow(unused_imports)]
 use std::cmp::Ordering;
+use std::fs::File;
+use std::io::{Write,BufReader,BufRead,ErrorKind};
 
 
 fn main() {
@@ -182,33 +184,57 @@ fn main() {
     
     // ? hwo to use enums
 
-    enum Days {
-        monday,
-        tuesday,
-        wednesday,
-        thrusday,
-        friday,
-        saturday,
-        sunday,
+    // enum Days {
+    //     monday,
+    //     tuesday,
+    //     wednesday,
+    //     thrusday,
+    //     friday,
+    //     saturday,
+    //     sunday,
+    // }
+
+    // impl Days {
+    //     fn is_weekday(&self) -> bool {
+    //         match self {
+    //             Days::saturday | Days::sunday => true,
+    //             _ => false
+    //         }
+    //     }
+    // }
+
+    // let today:Days = Days::saturday;
+    // match today {
+    //     Days::monday => println!("boring"),
+    //     _ => println!("meh")
+    // }
+    // match today.is_weekday() {
+    //     true => println!("yay weekend"),
+    //     _ => println!("ahh fuck no"),
+    // }
+
+
+    // * how to use vectors in rust 
+
+    let mut v1:Vec<i32> = vec![3,4,5,6,7,78,8,];
+    // if you want to push a value 
+    v1.push(34);
+    println!("v1: {:?}", v1);
+    let v2 = &v1[1];
+    println!("v2: {}", v2);
+
+    match v1.get(2){
+        Some(v2) => println!("{}",v2),
+        None => println!("no second value"),
+
+    }
+    // for loop for vector is 
+    for i in 0..v1.len() {
+        println!("{}",v1[i]*2);
     }
 
-    impl Days {
-        fn is_weekday(&self) -> bool {
-            match self {
-                Days::saturday | Days::sunday => true,
-                _ => false
-            }
-        }
-    }
-
-    let today:Days = Days::saturday;
-    match today {
-        Days::monday => println!("boring"),
-        _ => println!("meh")
-    }
-    match today.is_weekday() {
-        true => println!("yay weekend"),
-        _ => println!("ahh fuck no"),
+    for i in &mut v1{
+        println!("{}",i);
     }
 
 
