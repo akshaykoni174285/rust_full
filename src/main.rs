@@ -6,6 +6,7 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::fs::File;
 use std::io::{Write,BufReader,BufRead,ErrorKind};
+use std::ops::Add;
 
 
 fn main() {
@@ -80,7 +81,7 @@ fn main() {
     
     // * initialize
 
-    let arr_1 = [1,2,3,4,4,5];
+    // let arr_1 = [1,2,3,4,4,5];
     // println!("first item :{}",arr_1[0]);
     // println!("length is : {}",arr_1.len());
 
@@ -216,30 +217,71 @@ fn main() {
 
     // * how to use vectors in rust 
 
-    let mut v1:Vec<i32> = vec![3,4,5,6,7,78,8,];
+    // let mut v1:Vec<i32> = vec![3,4,5,6,7,78,8,];
     // if you want to push a value 
-    v1.push(34);
-    println!("v1: {:?}", v1);
-    let v2 = &v1[1];
-    println!("v2: {}", v2);
+    // v1.push(34);
+    // println!("v1: {:?}", v1);
+    // let v2 = &v1[1];
+    // println!("v2: {}", v2);
 
-    match v1.get(2){
-        Some(v2) => println!("{}",v2),
-        None => println!("no second value"),
+    // match v1.get(2){
+    //     Some(v2) => println!("{}",v2),
+    //     None => println!("no second value"),
 
-    }
+    // }
     // for loop for vector is 
-    for i in 0..v1.len() {
-        println!("{}",v1[i]*2);
-    }
+    // for i in 0..v1.len() {
+    //     println!("{}",v1[i]*2);
+    // }
 
-    for i in &mut v1{
-        println!("{}",i);
-    }
+    // for i in &mut v1{
+    //     println!("{}",i);
+    // }
+
+    // ? so how we define functions in rust 
+
+    // fn greet(){
+    //     println!("Hello how are your");
+    // }
+
+    // greet();
+
+    // fn sum_of_2(x:i32,y:i32) -> i32 {
+    //     x+y
+        
+
+    // }
+
+    // fn get_2(x:i32) -> (i32, i32) {
+    //     return (x+2,x+3);
+    // }
 
 
-
+    // println!("Sum of {} and {} is {}",4,6,sum_of_2(4,6));
+    // let (val1,val2) = get_2(4);
+    // println!("{} and {} ",val1,val2);
+    // ? how to pass a list to a function 
     
+    // fn sum_of_vectors(v: &[i32]) -> i32{
+    //     let mut sum = 0;
+    //     for &val in v.iter(){
+    //         // dont forget to use itr and you need reference to each value in vector 
+    //         sum += &val;
+    //     }
+    //     return sum;
+    // }
+    // let mut number_list = vec![4,5,6,67,7,8,];
+    // println!("the sum is : {}",sum_of_vectors(&number_list));
+    // dont forget about passing the reference when using vectors
 
-    
+
+    // lets talk about generic functions in rust 
+    // using this type of function you can define the operations for different types of data 
+
+    fn get_sum_generic<T:Add<Output = T>>(x: T, y:T) -> T {
+        return x + y;
+    }
+    // now you cannot directly add the addition operator 
+    // you have to use the trait for that 
+    println!("the 5+6 = {}",get_sum_generic(5,6));
 }
